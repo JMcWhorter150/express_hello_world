@@ -26,9 +26,19 @@ app.get(`/albums/:albumID/songs`, (req, res) => {
     res.send(`The songs for album ${req.params.albumID}`)
 })
 
+
+// when route matching, it goes first one first and doesn't care about later route matches
 app.get(`/albums/:albumID/songs/:songID`, (req, res) => {
     res.send(`Song ${req.params.songID} on album ${req.params.albumID}`)
 })
+
+// has to go at the end because if at the top, routes don't matter as this catches all
+// At the bottom, this catches any typos/everything
+// - res has methods....
+app.get(`*`, (req, res) => {
+    console.log(`Redirecting because no page here.`)
+    res.redirect(`/`);
+});
 
 server.listen(PORT, () => {
     console.log(`server listening on ${PORT}`);
