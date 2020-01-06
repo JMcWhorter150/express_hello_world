@@ -1,0 +1,85 @@
+{
+    "albums": [
+      {
+          "id": 1001,
+          "artist": "Miles Davis",
+          "title": "Kind of Blue",
+          "songs": [
+              {
+                  "id": 5001,
+                  "title": "So What"
+              },
+              {
+                  "id": 5002,
+                  "title": "Freddie Freeloader"
+              },
+              {
+                  "id": 5003,
+                  "title": "Blue in Green"
+              },
+              {
+                  "id": 5004,
+                  "title": "All Blues"
+              },
+              {
+                  "id": 5005,
+                  "title": "Flamenco Sketches"
+              }
+          ]
+      },
+      {
+          "id": 1002,
+          "artist": "John Coltrane",
+          "title": "A Love Supreme",
+          "songs": [
+              {
+                  "id": 6001,
+                  "title": "Resolution"
+              },
+              {
+                  "id": 6002,
+                  "title": "Pursuance"
+              },
+              {
+                  "id": 6003,
+                  "title": "Psalm"
+              }
+          ]
+      },
+      {
+          "id": 1003,
+          "artist": "Dave Brubeck ",
+          "title": "Time Out",
+          "songs": [
+              {
+                  "id": 7001,
+                  "title": "Blue Rondo à la Turk"
+              },
+              {
+                  "id": 7002,
+                  "title": "Strange Meadow Lark"
+              },
+              {
+                  "id": 7003,
+                  "title": "Take Five"
+              },
+              {
+                  "id": 7004,
+                  "title": "Three to Get Ready"
+              },
+              {
+                  "id": 7005,
+                  "title": "Kathy's Waltz"
+              },
+              {
+                  "id": 7006,
+                  "title": "Everybody's Jumpin'"
+              },
+              {
+                  "id": 7007,
+                  "title": "Pick up Sticks"
+              }
+          ]
+      }    
+    ]
+  }
