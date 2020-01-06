@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const PORT = 3000;
+const albums = require('./albums.js');
 
 const app = express();
 const server = http.createServer(app);
@@ -11,25 +12,24 @@ app.get('/', (req, res) => {
 })
 
 app.get('/albums', (req, res) => {
-    res.send(`a list of albums`);
+    res.send(albums.getAlbumTitles());
 })
 
 // :albumID is a placeholder
 // can't match the following:
 // ? & = % /
 app.get(`/albums/:albumID`, (req, res) => {
-    
-    res.send(`You want: ${req.params.albumID}`)
+    res.send(albums.getAlbumData(req.params.albumID));
 })
 
 app.get(`/albums/:albumID/songs`, (req, res) => {
-    res.send(`The songs for album ${req.params.albumID}`)
+    res.send(albums.getSongsForAlbum(req.params.albumID));
 })
 
 
 // when route matching, it goes first one first and doesn't care about later route matches
 app.get(`/albums/:albumID/songs/:songID`, (req, res) => {
-    res.send(`Song ${req.params.songID} on album ${req.params.albumID}`)
+    res.send(albums.getSongData(req.params.albumID, req.params.songID));
 })
 
 // has to go at the end because if at the top, routes don't matter as this catches all
