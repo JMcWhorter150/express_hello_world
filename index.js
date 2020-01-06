@@ -2,6 +2,7 @@ const http = require('http');
 const express = require('express');
 const PORT = 3000;
 const albums = require('./albums.js');
+const album = require('./albumsData.json');
 
 const app = express();
 const server = http.createServer(app);
@@ -30,6 +31,10 @@ app.get(`/albums/:albumID/songs`, (req, res) => {
 // when route matching, it goes first one first and doesn't care about later route matches
 app.get(`/albums/:albumID/songs/:songID`, (req, res) => {
     res.send(albums.getSongData(req.params.albumID, req.params.songID));
+})
+
+app.get(`/json/albums`, (req, res) => {
+    res.json(album.albums);
 })
 
 // has to go at the end because if at the top, routes don't matter as this catches all
