@@ -23,7 +23,7 @@ function getAlbumData(id) {
 function getAlbumTitles() {
     let result = ``;
     for (let album of albums.albums) {
-        result += `<li>Name: ${album.title} ID: ${album.id}</li>`;
+        result += `<li><a href="/albums/${album.id}">Name: ${album.title} ID: ${album.id}</a></li>`;
     }
     return result;
 }
@@ -37,7 +37,7 @@ function getSongsForAlbum(id) {
         let songs = albumObj.songs;
         for (let song of songs) {
             result += `<li>Title: ${song.title}</li>
-            <li>ID: ${song.id}`;
+            <li><a href="/albums/${albumObj.id}/songs/${song.id}">ID: ${song.id}</a></li>`;
         }
         return result;
     }
