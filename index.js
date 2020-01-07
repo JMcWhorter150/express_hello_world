@@ -11,6 +11,12 @@ const logger = morgan('tiny');
 const app = express();
 const server = http.createServer(app);
 
+const partials = {
+    header: 'partials/header',
+    nav: 'partials/nav',
+    footer: 'partials/footer',
+}
+
 app.engine('html', es6Renderer);
 app.set('views', 'templates');
 app.set('view engine', 'html');
@@ -22,11 +28,7 @@ app.get('/', (req, res) => {
             content: "<h1>Welcome to the home page</h1>",
             pageTitle: "Home"
         },
-        partials: {
-            header: 'partials/header',
-            nav: 'partials/nav',
-            footer: 'partials/footer',
-        }
+        partials
     })
 })
 
@@ -38,11 +40,7 @@ app.get('/albums', (req, res) => {
             content,
             pageTitle: req.url.slice(1)
         },
-        partials: {
-            header: 'partials/header',
-            nav: 'partials/nav',
-            footer: 'partials/footer',
-        }
+        partials
     })
 })
 
@@ -57,11 +55,7 @@ app.get(`/albums/:albumID`, (req, res) => {
             content,
             pageTitle: req.params.albumID
         },
-        partials: {
-            header: 'partials/header',
-            nav: 'partials/nav',
-            footer: 'partials/footer'
-        }
+        partials
     })
 })
 
@@ -73,11 +67,7 @@ app.get(`/albums/:albumID/songs`, (req, res) => {
             content,
             pageTitle: "songs"
         },
-        partials: {
-            header: 'partials/header',
-            nav: 'partials/nav',
-            footer: 'partials/footer'
-        }
+        partials
     })
 })
 
@@ -91,11 +81,7 @@ app.get(`/albums/:albumID/songs/:songID`, (req, res) => {
             content,
             pageTitle: req.params.songID
         },
-        partials: {
-            header: 'partials/header',
-            nav: 'partials/nav',
-            footer: 'partials/footer'
-        }
+        partials
     })
 })
 
